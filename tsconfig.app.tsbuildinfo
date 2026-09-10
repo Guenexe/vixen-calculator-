@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/db/db.ts","./src/tabs/calculatortab.tsx","./src/tabs/equipmenttab.tsx","./src/tabs/inktab.tsx","./src/tabs/materialstab.tsx","./src/tabs/pricelisttab.tsx","./src/utils/format.ts"],"version":"5.9.3"}

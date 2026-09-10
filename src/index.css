@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply text-pink-50 font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    background: #12020d;
+  }
+  * { box-sizing: border-box; }
+}
+
+@layer components {
+
+  /* ── Cards ────────────────────────────────────────────────────────── */
+  .card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(236,72,153,0.15);
+    backdrop-filter: blur(14px);
+    @apply rounded-2xl overflow-hidden;
+  }
+
+  .card-header {
+    @apply px-5 py-3 text-xs font-bold tracking-widest uppercase flex items-center gap-2;
+    background: rgba(236,72,153,0.06);
+    border-bottom: 1px solid rgba(236,72,153,0.12);
+  }
+
+  .card-header-dot {
+    @apply w-2 h-2 rounded-full flex-shrink-0;
+  }
+
+  .card-body { @apply p-5; }
+
+  /* ── Inputs ──────────────────────────────────────────────────────── */
+  .input-field {
+    @apply w-full rounded-xl px-3 py-2 text-sm focus:outline-none transition-all;
+    background: rgba(236,72,153,0.06);
+    border: 1px solid rgba(236,72,153,0.18);
+    color: #fce7f3;
+    caret-color: #f472b6;
+  }
+  .input-field::placeholder { color: rgba(244,114,182,0.35); }
+  .input-field:focus {
+    background: rgba(236,72,153,0.1);
+    border-color: rgba(244,114,182,0.55);
+    box-shadow: 0 0 0 3px rgba(244,114,182,0.12);
+  }
+  .input-field option { background: #1f0318; color: #fce7f3; }
+
+  .table-input {
+    @apply rounded-lg px-2 py-1.5 text-sm w-full focus:outline-none transition-all;
+    background: rgba(236,72,153,0.05);
+    border: 1px solid rgba(236,72,153,0.14);
+    color: #fce7f3;
+    caret-color: #f472b6;
+  }
+  .table-input::placeholder { color: rgba(244,114,182,0.3); }
+  .table-input:focus {
+    background: rgba(236,72,153,0.09);
+    border-color: rgba(244,114,182,0.45);
+    box-shadow: 0 0 0 2px rgba(244,114,182,0.1);
+  }
+  .table-input option { background: #1f0318; color: #fce7f3; }
+
+  /* ── Buttons ─────────────────────────────────────────────────────── */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-xl transition-all duration-200;
+    background: linear-gradient(135deg, #db2777, #be185d);
+    color: white;
+    box-shadow: 0 4px 20px rgba(219,39,119,0.4);
+  }
+  .btn-primary:hover {
+    background: linear-gradient(135deg, #ec4899, #db2777);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 28px rgba(219,39,119,0.55);
+  }
+  .btn-primary:active { transform: translateY(0); }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-xl transition-all duration-200;
+    background: rgba(236,72,153,0.08);
+    border: 1px solid rgba(236,72,153,0.2);
+    color: rgba(249,168,212,0.85);
+  }
+  .btn-secondary:hover {
+    background: rgba(236,72,153,0.15);
+    border-color: rgba(236,72,153,0.35);
+    color: #fbcfe8;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center gap-1 text-xs font-medium px-3 py-1.5 rounded-lg transition-all duration-200;
+    background: rgba(239,68,68,0.1);
+    border: 1px solid rgba(239,68,68,0.2);
+    color: #fca5a5;
+  }
+  .btn-danger:hover {
+    background: rgba(239,68,68,0.2);
+    border-color: rgba(239,68,68,0.35);
+    color: #fecaca;
+  }
+
+  .btn-success {
+    @apply inline-flex items-center gap-1 text-xs font-medium px-3 py-1.5 rounded-lg transition-all duration-200;
+    background: rgba(236,72,153,0.1);
+    border: 1px solid rgba(236,72,153,0.22);
+    color: #f9a8d4;
+  }
+  .btn-success:hover {
+    background: rgba(236,72,153,0.18);
+    border-color: rgba(236,72,153,0.38);
+    color: #fbcfe8;
+  }
+
+  /* ── Summary rows ────────────────────────────────────────────────── */
+  .summary-row {
+    @apply flex justify-between items-center py-2 px-1;
+    border-bottom: 1px solid rgba(236,72,153,0.07);
+  }
+  .summary-row:last-child { border-bottom: none; }
+  .summary-label { @apply text-sm; color: rgba(249,168,212,0.6); }
+  .summary-value { @apply text-sm font-semibold tabular-nums; color: #fce7f3; }
+  .summary-total {
+    @apply flex justify-between items-center py-2.5 mt-2 px-1;
+    border-top: 1px solid rgba(236,72,153,0.2);
+  }
+
+  /* ── Tabs ────────────────────────────────────────────────────────── */
+  .tab-btn {
+    @apply px-4 py-2 text-sm font-semibold rounded-full transition-all duration-200 whitespace-nowrap flex items-center gap-1.5;
+    color: rgba(249,168,212,0.5);
+  }
+  .tab-btn:hover {
+    color: rgba(249,168,212,0.85);
+    background: rgba(236,72,153,0.08);
+  }
+  .tab-active {
+    background: linear-gradient(135deg, rgba(219,39,119,0.3), rgba(168,85,247,0.2));
+    border: 1px solid rgba(244,114,182,0.35) !important;
+    color: #f9a8d4 !important;
+    box-shadow: 0 0 20px rgba(219,39,119,0.2);
+  }
+  .tab-inactive { border: 1px solid transparent; }
+
+  /* ── Table ───────────────────────────────────────────────────────── */
+  th {
+    @apply text-xs font-semibold tracking-wider py-3 px-3 text-left;
+    color: rgba(249,168,212,0.45);
+    background: rgba(236,72,153,0.04);
+    text-transform: uppercase;
+  }
+  td { @apply py-2.5 px-3 text-sm; color: #fce7f3; }
+  tbody tr { border-bottom: 1px solid rgba(236,72,153,0.06); }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: rgba(236,72,153,0.04); }
+  tfoot tr { background: rgba(236,72,153,0.05) !important; }
+
+  /* ── Stat cards ──────────────────────────────────────────────────── */
+  .stat-card {
+    @apply rounded-2xl p-4 flex flex-col gap-1;
+    background: rgba(236,72,153,0.07);
+    border: 1px solid rgba(236,72,153,0.16);
+  }
+  .stat-label { @apply text-xs font-medium uppercase tracking-wide; color: rgba(249,168,212,0.5); }
+  .stat-value { @apply text-2xl font-bold tabular-nums; }
+
+  /* ── Field label ─────────────────────────────────────────────────── */
+  .field-label {
+    @apply block text-xs font-medium mb-1.5;
+    color: rgba(249,168,212,0.55);
+    letter-spacing: 0.03em;
+  }
+
+  /* ── Badges ──────────────────────────────────────────────────────── */
+  .badge { @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold; }
+  .badge-direct {
+    background: rgba(244,114,182,0.12);
+    border: 1px solid rgba(244,114,182,0.25);
+    color: #f9a8d4;
+  }
+  .badge-packaging {
+    background: rgba(168,85,247,0.12);
+    border: 1px solid rgba(168,85,247,0.25);
+    color: #d8b4fe;
+  }
+}
+
+/* ── Scrollbar ──────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: rgba(236,72,153,0.04); }
+::-webkit-scrollbar-thumb { background: rgba(244,114,182,0.25); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(244,114,182,0.45); }
+
+/* ── Number spinners ──────────────────────────────────────────────── */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button { opacity: 0.3; }
+
+/* ── Recharts dark-pink overrides ─────────────────────────────────── */
+.recharts-cartesian-axis-tick text { fill: rgba(249,168,212,0.5) !important; }
+.recharts-legend-item-text { color: rgba(249,168,212,0.75) !important; }
+.recharts-tooltip-wrapper .recharts-default-tooltip {
+  background: rgba(31,3,24,0.96) !important;
+  border: 1px solid rgba(244,114,182,0.25) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5) !important;
+}
+.recharts-tooltip-label { color: #f9a8d4 !important; font-weight: 600; }
+.recharts-tooltip-item  { color: #fce7f3 !important; }
